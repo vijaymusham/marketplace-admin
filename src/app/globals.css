@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --color-primary: #2f3adf;
+  --color-primary-hover: #2530b8;
+  --color-secondary: #f1f5f9;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-secondary: var(--color-secondary);
+  --font-heading: var(--font-display);
+  --font-body: var(--font-display);
+}
+
+
+* { box-sizing: border-box; }
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body), system-ui, sans-serif !important;
+    font-weight: 500 !important;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+.font-display { font-family: var(--font-body), system-ui, sans-serif; letter-spacing: -0.02em; }
+
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+html.intro-pending {
+  overflow: hidden;
+}
+
+::selection { background: var(--color-primary); color: #fff; }
+
+.eyebrow { color: var(--color-primary); font-weight: 600; letter-spacing: .01em; }
+
+.btn-dark { background: var(--color-primary); color: #fff; border-radius: 999px; transition: transform .3s cubic-bezier(.2,.8,.2,1), background .3s; }
+.btn-dark:hover { transform: translateY(-2px); background:#000; }
+
+.btn-light { background: #fff; color: var(--foreground); border: 1px solid var(--line); border-radius: 999px; transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s; }
+.btn-light:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,.08); }
+
+.icon-btn { width: 2rem; height: 2rem; border-radius: 999px; background: var(--color-primary); color:#fff; display:grid; place-items:center; transition: transform .35s cubic-bezier(.2,.8,.2,1); flex:none; }
+.group:hover .icon-btn { transform: translateX(4px); }
+
+.card-hover { transition: transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s; }
+.card-hover:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,.10); }
+
+.img-zoom { overflow: hidden; }
+.img-zoom img { transition: transform .8s cubic-bezier(.2,.8,.2,1); }
+.img-zoom:hover img { transform: scale(1.06); }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+  will-change: transform;
+}
+.marquee-track-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 32s linear infinite;
+  will-change: transform;
+}
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+@keyframes marquee-reverse {
+  from { transform: translate3d(-50%, 0, 0); }
+  to { transform: translate3d(0, 0, 0); }
+}
+
+.group\/marquee:hover .marquee-track,
+.group\/marquee:hover .marquee-track-reverse,
+.group\/marquee:active .marquee-track,
+.group\/marquee:active .marquee-track-reverse {
+  animation-play-state: paused;
+}
+
+@keyframes dot-fill { from { width: 0%; } to { width: 100%; } }
+
+
+@keyframes rotate {
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+@property --spin {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+
+@keyframes glow-spin {
+    to { --spin: 360deg; }
+}
+
+.glow-btn {
+    --glow: var(--color-primary);
+    --beam: #ffffff;
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid transparent;
+    border-radius: 9999px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    text-decoration: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    background:
+        linear-gradient(var(--glow), var(--glow)) padding-box,
+        conic-gradient(
+            from var(--spin),
+            var(--glow) 0deg,
+            color-mix(in srgb, var(--beam) 45%, var(--glow)) 58deg,
+            var(--beam) 74deg,
+            color-mix(in srgb, var(--beam) 45%, var(--glow)) 90deg,
+            var(--glow) 112deg,
+            var(--glow) 180deg,
+            color-mix(in srgb, var(--beam) 45%, var(--glow)) 238deg,
+            var(--beam) 254deg,
+            color-mix(in srgb, var(--beam) 45%, var(--glow)) 270deg,
+            var(--glow) 292deg,
+            var(--glow) 360deg
+        ) border-box;
+    animation: glow-spin 2.2s linear infinite;
+    animation-play-state: paused;
+}
+
+.glow-btn:hover:not(:disabled):not(.is-disabled) {
+    animation-play-state: running;
+}
+
+.glow-btn--sell {
+    --glow: #ff5a1f;
+    --beam: #fff7ed;
+}
+
+.glow-btn--sm {
+    min-height: 2.25rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+}
+
+.glow-btn--md {
+    min-height: 2.5rem;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+}
+
+.glow-btn--lg {
+    min-height: 3rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+}
+
+.glow-btn--block {
+    width: 100%;
+}
+
+.glow-btn__label {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.glow-btn:focus-visible {
+    outline: 2px solid var(--glow);
+    outline-offset: 3px;
+}
+
+.glow-btn:disabled,
+.glow-btn.is-disabled {
+    cursor: not-allowed;
+    animation: none;
+    color: #fff;
+    background: #cbd5e1;
+    border-color: #cbd5e1;
+}
+
+.rainbow::before {
+    content: '';
+    position: absolute;
+    z-index: -2;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+    background-size: 50% 30%;
+    filter: blur(6px);
+    background-image: linear-gradient(#fff);
+    animation: rotate 4s linear infinite;
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
