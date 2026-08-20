@@ -39,7 +39,7 @@ export default function DashboardShell({
                         <Sidebar />
                     </div>
                 </div>
-                <section className="dash-scroll min-w-0 flex-1 overflow-y-auto rounded-3xl border border-white/6 bg-[#14121C]">
+                <section className="dash-scroll min-w-0 flex-1 overflow-y-auto rounded-3xl border border-white/6 bg-[#14121C] ">
                     <TopNav />
                     {children}
                 </section>
