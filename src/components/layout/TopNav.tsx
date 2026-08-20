@@ -12,7 +12,7 @@ export default function TopNav() {
     const crumbs = current?.crumbs ?? ["Analytics"];
 
     return (
-        <header className="flex h-14 shrink-0 items-center gap-3 px-5">
+        <header className="sticky top-0 z-20 flex h-14 items-center gap-3  bg-[#14121C] px-5">
             <nav className="flex min-w-0 flex-1 items-center gap-2 text-[13px] font-medium text-[#8B83A3]">
                 <Link href="/analytics" className="hover:text-white">
                     Home
