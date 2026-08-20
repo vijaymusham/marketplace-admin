@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import GlowButton from "@/components/ui/GlowButton";
 
 export default function NotFound() {
     return (
@@ -23,12 +23,9 @@ export default function NotFound() {
                             have been moved. Try heading back home to keep browsing.
                         </p>
 
-                        <Link
-                            href="/"
-                            className="mt-9 inline-flex items-center justify-center rounded-full bg-black px-8 py-3.5 text-[0.9375rem] font-semibold text-white transition-transform duration-200 hover:scale-[1.03] active:scale-[0.98]"
-                        >
+                        <GlowButton href="/" size="lg" className="mt-9">
                             Go back home
-                        </Link>
+                        </GlowButton>
                     </div>
 
                     <div className="relative mx-auto aspect-square w-full max-w-md lg:-mb-40 lg:max-w-none lg:translate-x-2">

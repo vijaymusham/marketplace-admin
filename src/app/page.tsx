@@ -1,11 +1,6 @@
-import React from 'react'
+import { redirect } from "next/navigation";
+import { DEFAULT_NAV_HREF } from "@/lib/nav";
 
-const page = () => {
-    return (
-        <div>
-            <h2>Hello World</h2>
-        </div>
-    )
+export default function Page() {
+    redirect(DEFAULT_NAV_HREF);
 }
-
-export default page
