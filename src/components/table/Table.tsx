@@ -11,7 +11,7 @@ import {
 } from "react";
 import { ChevronDown, ChevronLeft, ChevronRight, ChevronUp } from "lucide-react";
 
-export const PAGE_SIZE_OPTIONS = [10, 25, 50] as const;
+export const PAGE_SIZE_OPTIONS = [20, 25, 50] as const;
 
 export type TableColumn<T> = {
     id?: string;
@@ -248,7 +248,7 @@ function Table<T extends { id?: string | number }>({
                                 <tr>
                                     <td colSpan={Math.max(columns.length, 1)}>
                                         <p className="py-6 text-center text-sm font-semibold text-[#8B83A3]">
-                                            Loading
+                                            Loading...
                                         </p>
                                     </td>
                                 </tr>
@@ -273,6 +273,7 @@ function Table<T extends { id?: string | number }>({
                                                 <td
                                                     key={String(field ?? col.header)}
                                                     style={col.style}
+                                                    className="text-[13px]! tracking-wide! font-semibold! text-[#D6D0E8]!"
                                                 >
                                                     {content as ReactNode}
                                                 </td>

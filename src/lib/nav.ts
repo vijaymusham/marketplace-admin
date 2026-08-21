@@ -131,13 +131,6 @@ export const PRIMARY_LINKS: readonly NavItem[] = [
 
 export const DEFAULT_NAV_HREF = PRIMARY_LINKS[0].href;
 
-export function flattenNav(): { href: string; label: string }[] {
-    return PRIMARY_LINKS.flatMap((item) => [
-        { href: item.href, label: item.label },
-        ...(item.children ?? []),
-    ]);
-}
-
 export function findNav(pathname: string): ResolvedNav | null {
     if (pathname === "/profile") {
         return {

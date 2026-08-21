@@ -18,7 +18,7 @@ export default function TableHeader({
 }: TableHeaderProps) {
     return (
         <div
-            className={`mb-2 flex flex-col justify-between gap-5 md:mt-3 md:mb-4 lg:flex-row lg:items-center lg:gap-0 xl:mb-6 ${className}`}
+            className={`mb-2 flex flex-col justify-between gap-5 md:mt-3 md:mb-4 lg:flex-row lg:items-center lg:gap-0 xl:mb-3 ${className}`}
         >
             <div className="flex max-sm:flex-col max-sm:items-start flex-1 items-center gap-3">
                 {Icon && (

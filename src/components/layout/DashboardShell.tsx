@@ -1,30 +1,23 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import IconRail from "@/components/sidebar/IconRail";
 import Sidebar from "@/components/sidebar/Sidebar";
 import TopNav from "@/components/layout/TopNav";
 
-function LivelyLogo() {
-    return (
-        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden>
-            <rect width="32" height="32" rx="8" fill="url(#lively-g)" />
-            <path d="M12.2 8.6L23 16L12.2 23.4V8.6Z" fill="white" />
-            <defs>
-                <linearGradient id="lively-g" x1="2" y1="0" x2="32" y2="32">
-                    <stop stopColor="#4F8CFF" />
-                    <stop offset="0.55" stopColor="#6B6CFF" />
-                    <stop offset="1" stopColor="#8B5CFF" />
-                </linearGradient>
-            </defs>
-        </svg>
-    );
-}
+const AUTH_PATHS = new Set(["/login"]);
 
 export default function DashboardShell({
     children,
 }: {
     children: React.ReactNode;
 }) {
+    const pathname = usePathname() ?? "/";
+
+    if (AUTH_PATHS.has(pathname)) {
+        return <div className="h-full">{children}</div>;
+    }
+
     return (
         <div className="dash-frame flex h-screen w-full overflow-hidden p-3">
             <div className="flex min-h-0 min-w-0 flex-1">

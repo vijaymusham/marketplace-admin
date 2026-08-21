@@ -62,7 +62,7 @@ export default function ProfileButton() {
             dispatch(clearuser());
             await persistor.purge();
             toast.success("Signed out");
-            router.replace("/");
+            router.replace("/login");
         } catch {
             toast.error("Failed to sign out. Please try again.");
         }

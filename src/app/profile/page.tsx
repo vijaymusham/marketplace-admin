@@ -109,15 +109,15 @@ const COLUMNS: TableColumn<SampleRow>[] = [
     { field: "remark", header: "Remark" },
 ];
 
-export default function SectionPlaceholder({ label }: { label: string }) {
+export default function ProfilePage() {
     return (
         <div className="p-6">
             <TableHeader
-                title={label}
+                title="Profile"
                 subtitle="Your records will appear here"
                 icon={Calendar}
             />
-            <div className="rounded-3xl  bg-[#1A1724]">
+            <div className="rounded-3xl bg-[#1A1724]">
                 <Table data={SAMPLE_ROWS} columns={COLUMNS} records={10} />
             </div>
         </div>

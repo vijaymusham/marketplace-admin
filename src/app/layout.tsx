@@ -22,7 +22,7 @@ const display = localFont({
 });
 
 export const metadata: Metadata = {
-    title: "Deal Pokket",
+    title: "Deal Pokket | Dashboard",
     description: "Meetings, notes, and collaboration in one place",
     appleWebApp: {
         statusBarStyle: "default",
@@ -53,7 +53,31 @@ export default function RootLayout({
                         position="top-right"
                         reverseOrder={false}
                         gutter={8}
-                        containerStyle={{ zIndex: 100000, fontFamily: "var(--font-display)", fontWeight: "600" }}
+                        containerStyle={{
+                            zIndex: 100000,
+                            fontFamily: "var(--font-display)",
+                            fontWeight: "600",
+                        }}
+                        toastOptions={{
+                            style: {
+                                background: "#333",
+                                color: "#fff",
+                                border: "1px solid rgba(139, 110, 255, 0.22)",
+                                borderRadius: "14px",
+                            },
+                            success: {
+                                iconTheme: {
+                                    primary: "#6E56F5",
+                                    secondary: "#F5F3FF",
+                                },
+                            },
+                            error: {
+                                iconTheme: {
+                                    primary: "#F43F5E",
+                                    secondary: "#F5F3FF",
+                                },
+                            },
+                        }}
                         toasterId="default"
                     />
                 </TanstackProvider>
